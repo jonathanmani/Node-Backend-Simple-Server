@@ -30,16 +30,13 @@ const server = http.createServer((req, res) => {
         let personName = 'unknown';
         let personStatus = 'unknown';
         let personOccupation = 'unknown';
-        if(params['student']== 'leon'){
-          personName = 'leon';
-          personStatus = 'Boss Man';
-          personOccupation = 'Baller';
+        let flipResult = 'Type \'flip\' in the input box'
+        if (params['student'] =='flip'){
+          flipResult = Math.random() <= 0.5 ? 'heads' : 'tails';
         }
           res.writeHead(200, {'Content-Type': 'application/json'});
           const objToJson = {
-            name: personName,
-            status: personStatus,
-            currentOccupation: personOccupation
+            name : flipResult
           }
         res.end(JSON.stringify(objToJson));
       break;
@@ -64,6 +61,6 @@ const server = http.createServer((req, res) => {
         });
       break;
   }
-  
-
+});
 server.listen(8000);
+

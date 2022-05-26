@@ -1,4 +1,4 @@
-document.querySelector('#clickMe').addEventListener('click', makeReq)
+document.querySelector('#flipMe').addEventListener('click', makeReq)
 
 async function makeReq(){
 
