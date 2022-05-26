@@ -29,24 +29,21 @@ const server = http.createServer((req, res) => {
   }
   else if (page == '/api') {
     if('student' in params){
+      let personName = 'unknown';
+      let personStatus = 'unknown';
+      let personOccupation = 'unknown';
       if(params['student']== 'leon'){
+        personName = 'leon';
+        personStatus = 'Boss Man';
+        personOccupation = 'Baller';
+      }
         res.writeHead(200, {'Content-Type': 'application/json'});
         const objToJson = {
           name: "leon",
           status: "Boss Man",
           currentOccupation: "Baller"
         }
-        res.end(JSON.stringify(objToJson));
-      }//student = leon
-      else if(params['student'] != 'leon'){
-        res.writeHead(200, {'Content-Type': 'application/json'});
-        const objToJson = {
-          name: "unknown",
-          status: "unknown",
-          currentOccupation: "unknown"
-        }
-        res.end(JSON.stringify(objToJson));
-      }//student != leon
+      res.end(JSON.stringify(objToJson));
     }//student if
   }//else if
   else if (page == '/css/style.css'){
