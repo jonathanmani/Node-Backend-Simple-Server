@@ -25,11 +25,7 @@ const server = http.createServer((req, res) => {
     readWrite('otherpage.html','text/html');
   }
   else if (page == '/otherotherpage') {
-    fs.readFile('otherotherpage.html', function(err, data) {
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(data);
-      res.end();
-    });
+    readWrite('otherotherpage.html','text/html');
   }
   else if (page == '/api') {
     if('student' in params){
